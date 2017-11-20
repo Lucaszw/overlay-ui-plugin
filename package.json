@@ -35,7 +35,7 @@
     "webpack": "^3.8.1"
   },
   "dependencies": {
-    "@microdrop/ui-plugin": "file:../ui-plugin",
+    "@microdrop/ui-plugin": "^0.1.8",
     "jsoneditor": "^5.10.1",
     "sillyname": "^0.1.0",
     "yo-yo": "^1.4.1"
