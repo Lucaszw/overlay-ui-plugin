@@ -1,0 +1,9 @@
+{
+  "name": "overlay-ui-plugin",
+  "version": "0.0.1",
+  "type": "ui",
+  "script": "build/overlay-ui-plugin.js",
+  "views": [
+    "overlay-ui-plugin.html"
+  ]
+}

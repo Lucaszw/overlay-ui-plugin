@@ -1,0 +1,43 @@
+{
+  "name": "overlay-ui-plugin",
+  "version": "0.0.1",
+  "description": "UI Plugin for mangaing device overlays",
+  "main": "build/overlay-ui-plugin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/webpack",
+    "dev-mode": "npm run uninstall-pkgs && npm i ../ui-plugin",
+    "prod-mode": "npm run uninstall-pkgs && npm i @microdrop/ui-plugin",
+    "uninstall-pkgs": "npm uninstall @microdrop/ui-plugin",
+    "git-add": "git add package-lock.json && git add -p . && git commit",
+    "publish-pkg": "npm run prod-mode && npm run build && npm version patch && npm publish && git push origin master"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lucaszw/overlay-ui-plugin.git"
+  },
+  "keywords": [
+    "Microdrop",
+    "Overlay",
+    "UI",
+    "Plugin"
+  ],
+  "author": "Sci-Bots",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Lucaszw/overlay-ui-plugin/issues"
+  },
+  "homepage": "https://github.com/Lucaszw/overlay-ui-plugin#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.7",
+    "style-loader": "^0.19.0",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "@microdrop/ui-plugin": "file:../ui-plugin",
+    "jsoneditor": "^5.10.1",
+    "sillyname": "^0.1.0",
+    "yo-yo": "^1.4.1"
+  }
+}
