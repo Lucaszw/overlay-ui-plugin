@@ -1,2 +1,2 @@
-# overlay-ui-plugin
+# @microdrop/overlay-ui-plugin
 UI Plugin for Controlling Device Overlays
