@@ -1,6 +1,6 @@
 {
   "name": "overlay-ui-plugin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "UI Plugin for mangaing device overlays",
   "main": "build/overlay-ui-plugin.js",
   "scripts": {
