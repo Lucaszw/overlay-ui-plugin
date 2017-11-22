@@ -5,6 +5,10 @@ const generateName = require('sillyname');
 const yo = require('yo-yo');
 const UIPlugin = require('@microdrop/ui-plugin');
 
+const MicrodropAsync = require('@microdrop/async/MicrodropAsync');
+
+console.log({MicrodropAsync});
+
 class OverlayUIPlugin extends UIPlugin {
   constructor(element, focusTracker) {
     super(element, focusTracker);
@@ -29,7 +33,7 @@ class OverlayUIPlugin extends UIPlugin {
     this.overlays = payload;
     if (this.view == "update") {
       this.editor.set(this.overlays);
-      this.editor.setSchema(OVERLAYS_SCHEMA);
+      this.editor.setSchema(MicrodropAsync.Device.OverlaySchema);
     }
   }
 
@@ -92,48 +96,13 @@ class OverlayUIPlugin extends UIPlugin {
   }
 }
 
-const maps = ["jet", "hot", "cool", "spring", "summer", "autumn", "winter",
-"bone", "copper", "greys", "greens", "bluered", "rainbow", "portland",
-"blackbody", "earth", "electric", "viridis", "inferno", "magma", "plasma", "RdBu",
-"warm", "bathymetry", "chlorophyll", "density",
-"freesurface-blue", "freesurface-red", "oxygen", "par", "phase", "salinity",
-"temperature", "turbidity", "velocity-blue", "velocity-green"];
-
-const OVERLAY_SCHEMA = {
-  type: "object",
-  properties: {
-    electrodes: {
-      type: "object",
-      patternProperties: {
-        "^(electrode[0-9]+)+$": {
-          type: "object",
-          properties: {
-            scale: {type: "number", default: 0.5},
-            intensity: {type: "integer", default: 3}
-          }
-        }
-      }
-    },
-    name: {type: "string"},
-    type: {type: "string", default: "colormap", enum: ["colormap", "shapemap", "both"]},
-    visible: {type: "boolean", default: true},
-    colorRange: {type: "integer", default:10, minimum: 10},
-    shapeScale: {type: "number", default: 0.5, minimum: 0.1, maximum: 2},
-    colorMap: {type: "string",  default: "temperature", enum: maps},
-    numEdges: {type: "integer", default: 30, minimum: 3, maximum: 30},
-    colorAll: {type: "boolean", default: true},
-    shapeAll: {type: "boolean", default: false}
-  },
-  required: ["electrodes", "name", "type", "visible"]
-};
-
 const OVERLAYS_SCHEMA = {
     type: "array",
-    items: OVERLAY_SCHEMA
+    items: MicrodropAsync.Device.OverlaySchema
 };
 
 const SKELETON = () => {
-  const props = OVERLAY_SCHEMA.properties;
+  const props = MicrodropAsync.Device.OverlaySchema.properties;
   const skeleton = _.zipObject(_.keys(props), _.map(props, "default"));
   skeleton.electrodes = {electrode000: {scale: 0.5, intensity: 3}};
   skeleton.name = generateName();
