@@ -7,8 +7,6 @@ const UIPlugin = require('@microdrop/ui-plugin');
 
 const MicrodropAsync = require('@microdrop/async/MicrodropAsync');
 
-console.log({MicrodropAsync});
-
 class OverlayUIPlugin extends UIPlugin {
   constructor(element, focusTracker) {
     super(element, focusTracker);
@@ -56,7 +54,7 @@ class OverlayUIPlugin extends UIPlugin {
       break;
       case "new":
       this.editor.set(SKELETON());
-      this.editor.setSchema(Microdrop.Device.OverlaySchema);
+      this.editor.setSchema(MicrodropAsync.Device.OverlaySchema);
       break;
     }
   }
