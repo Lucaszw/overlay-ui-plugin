@@ -56,8 +56,7 @@ class OverlayUIPlugin extends UIPlugin {
       break;
       case "new":
       this.editor.set(SKELETON());
-      console.log({OVERLAY_SCHEMA});
-      this.editor.setSchema(OVERLAY_SCHEMA);
+      this.editor.setSchema(Microdrop.Device.OverlaySchema);
       break;
     }
   }
