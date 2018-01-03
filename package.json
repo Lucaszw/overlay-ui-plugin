@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@microdrop/async": "^0.2.31",
-    "@microdrop/buildutils": "0.0.15",
+    "@microdrop/buildutils": "0.0.16",
     "@microdrop/ui-plugin": "^0.1.9",
     "jsoneditor": "^5.10.1",
     "sillyname": "^0.1.0",
